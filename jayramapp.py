@@ -2,11 +2,11 @@
 # BACKEND CODE (app.py)
 # ==============================
 
-from flask import Flask, render_template, request
+
 import numpy as np
 import joblib
 
-app = Flask(__name__)
+
 
 # Load trained model files
 model = joblib.load('svr_model.pkl')
