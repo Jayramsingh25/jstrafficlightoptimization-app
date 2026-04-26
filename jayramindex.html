@@ -1,0 +1,104 @@
+<!-- ==============================
+FRONTEND CODE (templates/index.html)
+============================== -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Traffic Signal Prediction</title>
+
+    <style>
+
+        body{
+            background:#f2f2f2;
+            font-family:Arial;
+            text-align:center;
+            padding-top:50px;
+        }
+
+        .container{
+            width:400px;
+            background:white;
+            padding:30px;
+            margin:auto;
+            border-radius:10px;
+            box-shadow:0px 0px 10px gray;
+        }
+
+        input{
+            width:90%;
+            padding:10px;
+            margin:10px;
+        }
+
+        button{
+            padding:10px 20px;
+            background:blue;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        h2{
+            color:darkblue;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Traffic Signal Prediction</h2>
+
+    <!-- LINK FRONTEND WITH BACKEND -->
+    <form action="/predict" method="POST">
+
+        <input type="number"
+               step="any"
+               name="traffic_density"
+               placeholder="Traffic Density"
+               required>
+
+        <input type="number"
+               step="any"
+               name="vehicle_count"
+               placeholder="Vehicle Count"
+               required>
+
+        <input type="number"
+               step="any"
+               name="average_speed"
+               placeholder="Average Speed"
+               required>
+
+        <input type="number"
+               step="any"
+               name="lane_count"
+               placeholder="Lane Count"
+               required>
+
+        <input type="number"
+               step="any"
+               name="peak_hour"
+               placeholder="Peak Hour"
+               required>
+
+        <button type="submit">
+            Predict
+        </button>
+
+    </form>
+
+    <h3>
+        {{ prediction_text }}
+    </h3>
+
+</div>
+
+</body>
+</html>
